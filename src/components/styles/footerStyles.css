@@ -1,0 +1,96 @@
+footer {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: black;
+  color: #eee;
+  min-width: 100%;
+  height: 340px;
+  flex-wrap: wrap;
+}
+
+.info {
+  width: 30%;
+  height: 80%;
+}
+
+.title_1 {
+  width: 67px;
+  margin: 40px;
+  font-weight: bold;
+  font-size: 18px;
+  border-bottom: 3px solid brown;
+}
+
+.title_2 {
+  width: 105px;
+  margin: 40px;
+  font-weight: bold;
+  font-size: 18px;
+  border-bottom: 3px solid brown;
+}
+
+.title_3 {
+  width: 125px;
+  margin: 40px;
+  font-weight: bold;
+  font-size: 18px;
+  border-bottom: 3px solid brown;
+}
+
+.address {
+  margin: 40px;
+  font-size: 16px;
+  color: #ccc;
+}
+
+.hours {
+  margin: 40px;
+  font-size: 16px;
+  color: #ccc;
+}
+
+.posts {
+  margin: 40px;
+  font-size: 16px;
+  color: #ccc;
+}
+
+.footer_2 {
+  width: 100%;
+  height: 50px;
+  color: #ccc;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+}
+
+.copy {
+  width: 30%;
+}
+
+.social {
+  width: 30%;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.foo_categories {
+  width: 30%;
+  list-style: none;
+  text-align: start;
+  padding-left: 9%;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  gap: 10px;
+}
+
+.foo_categories a {
+  color: #ccc;
+}
