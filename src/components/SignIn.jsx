@@ -47,7 +47,7 @@ const SignIn = () => {
   }
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <div className="login">
       <form onSubmit={handleSignIn}>
         <input
           type="text"
@@ -64,11 +64,10 @@ const SignIn = () => {
         />
         <br />
         <button disabled={!login || !password} type="submit">
-          Войти
+          LOGIN
         </button>
         <h3>
-          Нет аккаунта?
-          <Link to="/register">Зарегистрироваться</Link>
+          Don't have an account? <Link to="/register">Sign Up</Link>
         </h3>
       </form>
     </div>

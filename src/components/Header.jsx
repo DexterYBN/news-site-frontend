@@ -36,7 +36,7 @@ const Header = () => {
         })}
       </div>
       <div className="auth">
-        <Link to="/login">Войти</Link> | <Link to="/register">Регистрация</Link>
+        <Link to="/login">Sign In</Link>
       </div>
     </header>
   );

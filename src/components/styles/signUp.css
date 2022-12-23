@@ -1,3 +1,11 @@
+.register {
+  max-width: 500px;
+  min-height: 400px;
+  margin: 130px auto;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
 .login {
   max-width: 500px;
   height: 390px;
@@ -6,7 +14,7 @@
   border-radius: 10px;
 }
 
-.login form {
+.register form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,7 +22,7 @@
   flex-direction: column;
 }
 
-.login input {
+.register input {
   width: 70%;
   border: none;
   outline: none;
@@ -23,7 +31,7 @@
   font-size: 16px;
 }
 
-.login button {
+.register button {
   width: 75%;
   border-radius: 20px;
   padding: 13px;
@@ -35,12 +43,12 @@
   background-color: black;
 }
 
-.login h3 {
+.register h3 {
     color: #ccc;
     font-size: 18px;
     margin-top: 40vh;
 }
 
-.login a {
+.register a {
     color: #ccc;
 }

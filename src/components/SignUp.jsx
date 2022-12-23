@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authRegister } from "../features/applicationSlice";
 import { Link } from "react-router-dom";
-import "./styles/signIn.css";
+import "./styles/signUp.css";
 
 const SignUp = () => {
   const error = useSelector((state) => state.application.error);
@@ -47,7 +47,7 @@ const SignUp = () => {
   }
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <div className="register">
       <form onSubmit={handleSignUp}>
         <input
           type="text"
@@ -64,11 +64,10 @@ const SignUp = () => {
         />
         <br />
         <button disabled={!login || !password} type="submit">
-          Зарегистрироваться
+          Register
         </button>
         <h3>
-          Уже есть аккаунт?
-          <Link to="/login">Войти</Link>
+          Already have an account? <Link to="/login">Sign In</Link>
         </h3>
       </form>
     </div>
