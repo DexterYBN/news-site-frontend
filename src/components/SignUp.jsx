@@ -3,10 +3,13 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authRegister } from "../features/applicationSlice";
 import { Link } from "react-router-dom";
+import "./styles/signIn.css";
 
 const SignUp = () => {
   const error = useSelector((state) => state.application.error);
-    const registrationing = useSelector((state) => state.application.registrationing);
+  const registrationing = useSelector(
+    (state) => state.application.registrationing
+  );
 
   // Состояния
   const [login, setLogin] = useState("");
@@ -35,16 +38,16 @@ const SignUp = () => {
   }
 
   // Прелоадер
-    if (registrationing) {
-      return (
-        <div style={{ color: "brown", fontSize: "50px", textAlign: "center" }}>
-          Registration in progress. Wait...
-        </div>
-      );
-    }
+  if (registrationing) {
+    return (
+      <div style={{ color: "brown", fontSize: "50px", textAlign: "center" }}>
+        Registration in progress. Wait...
+      </div>
+    );
+  }
 
   return (
-    <div style={{textAlign: "center"}}>
+    <div style={{ textAlign: "center" }}>
       <form onSubmit={handleSignUp}>
         <input
           type="text"

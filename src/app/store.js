@@ -3,6 +3,7 @@ import application from "../features/applicationSlice";
 import users from "../features/userSlice";
 import comments from "../features/commentSlice";
 import categories from "../features/categoriesSlice";
+import news from "../features/newsSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
     users,
     comments,
     categories,
+    news
   },
 });

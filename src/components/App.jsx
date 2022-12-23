@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./Header";
+import Main from "./Main";
 import Footer from "./Footer";
 import { Routes, Route } from "react-router-dom";
 import SignIn from "../components/SignIn";
@@ -10,6 +11,7 @@ const App = () => {
     <>
       <Header />
       <Routes>
+        <Route path="/" element={<Main />} />
         <Route path="/login" element={<SignIn />} />
         <Route path="/register" element={<SignUp />} />
       </Routes>

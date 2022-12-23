@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authLogin } from "../features/applicationSlice";
 import { Link } from "react-router-dom";
+import "./styles/signIn.css";
 
 const SignIn = () => {
   const error = useSelector((state) => state.application.error);
