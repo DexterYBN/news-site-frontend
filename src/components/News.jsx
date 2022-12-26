@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { fetchComments, createComment } from "../features/commentSlice";
 import { fetchNews } from "../features/newsSlice";
 import { FaTelegramPlane } from "react-icons/fa";
-import "./styles/commentStyles.css";
+import "./styles/newsStyles.css";
 
 const Comments = () => {
   const { id } = useParams();
@@ -51,22 +51,35 @@ const Comments = () => {
   }, [dispatch]);
 
   return (
-    <main>
-      <div>
+    <main className="main_container">
+      <div className="image_container">
+        {news.map((item) => {
+          return (
+            <div className="capture">
+              <img
+                src={`http://localhost:4000/assets/Images/${item.image}`}
+                alt=""
+              />
+            </div>
+          );
+        })}
+      </div>
+      <div className="subtitle_container">
         {news.map((item) => {
           return <div>{item.subtitle}</div>;
         })}
       </div>
-      <div className="comments">
+      <div className="comments_container">
         {comments.map((comment) => {
           return (
-            <div key={comment._id}>
-              <p>
-                {comment.createdAt} {comment.user.login}
-              </p>
-              <p>{comment.text}</p>
+            <>
+              <div key={comment._id} className="user_info">
+                <div className="nickname">{comment.user.login}</div>
+                <div className="comment">{comment.text}</div>
+                <div className="date">{comment.createdAt}</div>
+              </div>
               <hr />
-            </div>
+            </>
           );
         })}
       </div>

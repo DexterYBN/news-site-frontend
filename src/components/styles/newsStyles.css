@@ -1,0 +1,109 @@
+.main_container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 40px;
+  font-size: 20px;
+}
+
+.image_container {
+  width: 512px;
+  height: 512px;
+}
+
+.subtitle_container {
+  width: 900px;
+  height: 512px;
+  font-size: 36px;
+  color: #ccc;
+}
+
+.comments_container {
+  width: 100%;
+}
+
+.user_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 30px 0;
+  text-align: start;
+}
+
+.nickname {
+  color: cornflowerblue;
+}
+
+.comment {
+  margin: 10px 0;
+  color: #ccc;
+}
+
+.date {
+  color: darkgray;
+  font-size: 14px;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.form input {
+  width: 500px;
+  border: 3px solid #ccc;
+  outline: none;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 16px;
+  background-color: #ccc;
+  transition: 0.5s;
+}
+
+.form input:hover {
+  border: 3px solid cornflowerblue;
+  transition: 0.5s;
+}
+
+.form input:focus {
+  border: 3px solid cornflowerblue;
+}
+
+.form button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid;
+  cursor: pointer;
+  color: cornflowerblue;
+  background-color: black;
+  transition: 0.5s;
+  margin-left: 10px;
+  text-align: center;
+  align-items: center;
+}
+
+.form button:hover {
+  transition: 0.5s;
+  border: 2px solid black;
+  color: black;
+  background-color: cornflowerblue;
+}
+
+.form button svg {
+  padding-right: 2px;
+  padding-top: 5px;
+}
+
+.capture {
+  width: 512px;
+  height: 512px;  
+}
+
+.capture img {
+  width: 512px;
+  height: 512px;
+
+}

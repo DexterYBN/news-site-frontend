@@ -52,14 +52,13 @@ const Home = () => {
                   <hr />
                 </div>
                 <div>
-                  <h3>{item.subtitle}</h3>
+                  <h3>{item.subtitle.length > 93 ? item.subtitle.slice(0, 60) + "..." : item.subtitle}</h3>
                 </div>
                 <div>
                   <hr />
                   <Link to={`/news/${item._id}`}>Read more →</Link>
                 </div>
               </div>
-              {/* <img src="http://localhost:4000/backend/assets/Images/Games/jugger.jpg" alt="" /> */}
             </div>
           );
         })}
