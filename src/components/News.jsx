@@ -51,51 +51,59 @@ const Comments = () => {
   }, [dispatch]);
 
   return (
-    <main className="main_container">
-      <div className="image_container">
-        {news.map((item) => {
-          return (
-            <div className="capture">
-              <img
-                src={`http://localhost:4000/assets/Images/${item.image}`}
-                alt=""
-              />
-            </div>
-          );
-        })}
-      </div>
-      <div className="subtitle_container">
-        {news.map((item) => {
-          return <div>{item.subtitle}</div>;
-        })}
-      </div>
-      <div className="comments_container">
-        {comments.map((comment) => {
-          return (
-            <>
-              <div key={comment._id} className="user_info">
-                <div className="nickname">{comment.user.login}</div>
-                <div className="comment">{comment.text}</div>
-                <div className="date">{comment.createdAt}</div>
+    <main>
+      {news.map((news) => {
+        return (
+          <div key={news.id} className="title_news"><h1>{news.title}</h1></div>
+        )
+      })}
+      <div className="main_container">
+        <div className="image_container">
+          {news.map((item) => {
+            return (
+              <div key={item.id} className="capture">
+                <img
+                  src={`http://localhost:4000/assets/Images/${item.image}`}
+                  alt=""
+                />
               </div>
-              <hr />
-            </>
-          );
-        })}
-      </div>
-      {token && (
-        <div className="form">
-          <input
-            type="text"
-            onChange={handleChange}
-            value={text}
-            placeholder="Enter your comment"
-          />
-          <button disabled={!text} type="submit" onClick={handleAddComment}>
-            <FaTelegramPlane />
-          </button>
+            );
+          })}
         </div>
-      )}
+        <div className="subtitle_container">
+          {news.map((item) => {
+            return <div key={item.id} >{item.subtitle}</div>;
+          })}
+        </div>
+        <div className="comments_container">
+          <div style={{textAlign: "center", color: "#eee"}}><h2>Reviews</h2><hr /></div>
+          {comments.map((comment) => {
+            return (
+              <>
+                <div key={comment._id} className="user_info">
+                  <div className="nickname">{comment.user.login}</div>
+                  <div className="comment">{comment.text}</div>
+                  <div className="date">{comment.createdAt}</div>
+                </div>
+                <hr />
+              </>
+            );
+          })}
+        </div>
+        {token && (
+          <div className="form">
+            <input
+              type="text"
+              onChange={handleChange}
+              value={text}
+              placeholder="Enter your comment"
+            />
+            <button disabled={!text} type="submit" onClick={handleAddComment}>
+              <FaTelegramPlane />
+            </button>
+          </div>
+        )}
+      </div>
     </main>
   );
 };

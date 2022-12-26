@@ -1,25 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
 .main_container {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 40px;
+  /* margin: 40px; */
   font-size: 20px;
+  width: 100%;
+}
+
+.title_news {
+  width: 100%;
+  text-align: center;
+  color: cornflowerblue;
 }
 
 .image_container {
-  width: 512px;
-  height: 512px;
+  width: 100%;
 }
 
 .subtitle_container {
-  width: 900px;
-  height: 512px;
-  font-size: 36px;
+  width: 100%;
+  margin: 50px 40px;
+  font-size: 24px;
   color: #ccc;
 }
 
 .comments_container {
   width: 100%;
+  margin: 0 40px;
 }
 
 .user_info {
@@ -48,7 +59,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin: 40px;
 }
 
 .form input {
@@ -97,13 +108,7 @@
   padding-top: 5px;
 }
 
-.capture {
-  width: 512px;
-  height: 512px;  
-}
-
 .capture img {
-  width: 512px;
-  height: 512px;
-
+  margin: 0;
+  width: 100%;
 }

@@ -1,10 +1,10 @@
 import React from "react";
 import "./styles/footerStyles.css";
-import insta from "../social/instagram.png";
-import twitter from "../social/twitter.png";
-import whats from "../social/whats.png";
-import youtube from "../social/youtube.png";
-import dis from "../social/discord.png";
+import insta from "../assets/social/instagram.png";
+import twitter from "../assets/social/twitter.png";
+import whats from "../assets/social/whats.png";
+import youtube from "../assets/social/youtube.png";
+import dis from "../assets/social/discord.png";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchCategories } from "../features/categoriesSlice";

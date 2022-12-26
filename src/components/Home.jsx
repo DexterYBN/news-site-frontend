@@ -52,7 +52,7 @@ const Home = () => {
                   <hr />
                 </div>
                 <div>
-                  <h3>{item.subtitle.length > 93 ? item.subtitle.slice(0, 60) + "..." : item.subtitle}</h3>
+                  <h3>{item.subtitle.length > 1 ? item.subtitle.slice(0, 100) + "..." : item.subtitle}</h3>
                 </div>
                 <div>
                   <hr />
