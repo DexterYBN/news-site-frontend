@@ -1,3 +1,26 @@
+.main {
+  width: 100%;
+  height: 100%;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  margin-top: 4%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .register {
   max-width: 500px;
   min-height: 400px;
@@ -6,15 +29,8 @@
   border-radius: 10px;
 }
 
-.login {
-  max-width: 500px;
-  height: 390px;
-  margin: 130px auto;
-  background-color: transparent;
-  border-radius: 10px;
-}
-
 .register form {
+  width: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,31 +40,50 @@
 
 .register input {
   width: 70%;
-  border: none;
+  border: 3px solid #ccc;
   outline: none;
   padding: 10px;
   border-radius: 20px;
   font-size: 16px;
+  background-color: #ccc;
+  transition: 0.5s;
+}
+
+.register input:hover {
+  border: 3px solid cornflowerblue;
+  transition: 0.5s;
+}
+
+.register input:focus {
+  border: 3px solid cornflowerblue;
 }
 
 .register button {
   width: 75%;
   border-radius: 20px;
   padding: 13px;
-  border: none;
+  border: 2px solid;
   cursor: pointer;
   margin-top: 10px;
   font-weight: bold;
   color: cornflowerblue;
   background-color: black;
+  transition: 0.5s;
+}
+
+.register button:hover {
+  transition: 0.5s;
+  border: 2px solid cornflowerblue;
+  color: black;
+  background-color: cornflowerblue;
 }
 
 .register h3 {
-    color: #ccc;
-    font-size: 18px;
-    margin-top: 40vh;
+  color: cornflowerblue;
+  font-size: 18px;
+  margin-top: 40vh;
 }
 
 .register a {
-    color: #ccc;
+  color: cornflowerblue;
 }

@@ -1,19 +1,42 @@
 import React from "react";
 import "./styles/headerStyles.css";
 import { Link } from "react-router-dom";
-import logo from "../logo.png";
+import logo from "../assets/logo.png";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchCategories } from "../features/categoriesSlice";
+import { VscAccount } from "react-icons/vsc";
+import { BiLogOut } from "react-icons/bi";
 
 const Header = () => {
   const categories = useSelector((state) => state.categories.categories);
+  const loading = useSelector((state) => state.categories.loading);
+  const token = useSelector((state) => state.application.token);
+  const error = useSelector((state) => state.categories.error);
+  const login = useSelector((state) => state.application.login);
 
   const dispatch = useDispatch();
+
+  const clearToken = () => {
+    window.location.reload();
+    localStorage.clear(token);
+  };
 
   useEffect(() => {
     dispatch(fetchCategories());
   }, [dispatch]);
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  if (loading) {
+    return (
+      <div style={{ color: "brown", fontSize: "50px", textAlign: "center" }}>
+        Categories in progress. Wait...
+      </div>
+    );
+  }
 
   return (
     <header>
@@ -36,7 +59,19 @@ const Header = () => {
         })}
       </div>
       <div className="auth">
-        <Link to="/login">Sign In</Link>
+        <Link to="/login" hidden={token}>
+          Sign In
+        </Link>
+        {token && (
+          <div className="username">
+            <VscAccount className="userIcon" />
+            {login} |
+            <button className="exitButton" onClick={clearToken}>
+              Log out
+              <BiLogOut className="logoutIcon" />
+            </button>
+          </div>
+        )}
       </div>
     </header>
   );

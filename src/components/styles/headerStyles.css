@@ -49,9 +49,46 @@ a:active {
 }
 
 .auth {
-  /* border: 1px solid #ccc; */
-  /* padding: 10px;
-  border-radius: 30px; */
+  display: flex;
+  align-items: center;
+}
+
+.username {
+  font-size: 18px;
+  color: cornflowerblue;
+  text-align: center;
+}
+
+.userIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  vertical-align: top;
+}
+
+.logoutIcon {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+  vertical-align: top;
+}
+
+.exitButton {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 18px;
+  height: 30px;
+  cursor: pointer;
+  background-color: transparent;
+  color: cornflowerblue;
+  border: none;
+}
+
+.exitButton:hover {
+  text-decoration: underline;
+}
+
+.exitButton:active {
+  text-decoration: underline;
 }
 
 input {

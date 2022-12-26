@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { authLogin } from "../features/applicationSlice";
 import { Link } from "react-router-dom";
 import "./styles/signIn.css";
+import video from "../assets/videoBG.mp4";
 
 const SignIn = () => {
   const error = useSelector((state) => state.application.error);
@@ -47,30 +48,39 @@ const SignIn = () => {
   }
 
   return (
-    <div className="login">
-      <form onSubmit={handleSignIn}>
-        <input
-          type="text"
-          value={login}
-          placeholder="name"
-          onChange={handleSetName}
-        />
-        <br />
-        <input
-          type="password"
-          value={password}
-          placeholder="password"
-          onChange={handleSetPass}
-        />
-        <br />
-        <button disabled={!login || !password} type="submit">
-          LOGIN
-        </button>
-        <h3>
-          Don't have an account? <Link to="/register">Sign Up</Link>
-        </h3>
-      </form>
-    </div>
+    <>
+      <main>
+        <div className="main">
+          <video src={video} muted loop autoPlay />
+          <div className="content">
+            <div className="login">
+              <form onSubmit={handleSignIn}>
+                <input
+                  type="text"
+                  value={login}
+                  placeholder="Enter your name"
+                  onChange={handleSetName}
+                />
+                <br />
+                <input
+                  type="password"
+                  value={password}
+                  placeholder="Enter password"
+                  onChange={handleSetPass}
+                />
+                <br />
+                <button disabled={!login || !password} type="submit">
+                  LOGIN
+                </button>
+                <h3>
+                  Don't have an account? <Link to="/register">Sign Up</Link>
+                </h3>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    </>
   );
 };
 

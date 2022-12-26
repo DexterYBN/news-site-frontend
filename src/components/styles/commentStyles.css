@@ -1,0 +1,22 @@
+.comments {
+    text-align: center;
+    color: cornflowerblue;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form input {
+    width: 600px;
+}
+
+.form button {
+    margin: 10px;
+    border: none;
+    background-color: transparent;
+    color: cornflowerblue;
+    cursor: pointer;
+}

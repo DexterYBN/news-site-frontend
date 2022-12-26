@@ -14,9 +14,9 @@ export const fetchComments = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await fetch("http://localhost:4000/comments", {
-        headers: {
-          Authorization: `Bearer ${thunkAPI.getState().application.token}`,
-        },
+        // headers: {
+        //   Authorization: `Bearer ${thunkAPI.getState().application.token}`,
+        // },
       });
       const comments = await res.json();
 
@@ -35,11 +35,11 @@ export const fetchComments = createAsyncThunk(
 
 export const createComment = createAsyncThunk(
   "post/comments/create",
-  async ({ text, createdAt }, thunkAPI) => {
+  async ({ text, createdAt, id }, thunkAPI) => {
     try {
       const res = await fetch("http://localhost:4000/comment", {
         method: "POST",
-        body: JSON.stringify({ text: text, date: createdAt }),
+        body: JSON.stringify({ text: text, date: createdAt, news: id }),
         headers: {
           "Content-type": "application/json",
           Authorization: `Bearer ${thunkAPI.getState().application.token}`,
@@ -51,6 +51,7 @@ export const createComment = createAsyncThunk(
       if (comments.error) {
         return thunkAPI.rejectWithValue(comments.error);
       }
+
       return thunkAPI.fulfillWithValue(comments);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

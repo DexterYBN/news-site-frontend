@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { authRegister } from "../features/applicationSlice";
 import { Link } from "react-router-dom";
 import "./styles/signUp.css";
+import video from "../assets/videoBG.mp4";
 
 const SignUp = () => {
   const error = useSelector((state) => state.application.error);
@@ -47,30 +48,39 @@ const SignUp = () => {
   }
 
   return (
-    <div className="register">
-      <form onSubmit={handleSignUp}>
-        <input
-          type="text"
-          value={login}
-          placeholder="name"
-          onChange={handleSetName}
-        />
-        <br />
-        <input
-          type="password"
-          value={password}
-          placeholder="password"
-          onChange={handleSetPass}
-        />
-        <br />
-        <button disabled={!login || !password} type="submit">
-          Register
-        </button>
-        <h3>
-          Already have an account? <Link to="/login">Sign In</Link>
-        </h3>
-      </form>
-    </div>
+    <>
+      <main>
+        <div className="main">
+          <video src={video} muted loop autoPlay />
+          <div className="content">
+            <div className="register">
+              <form onSubmit={handleSignUp}>
+                <input
+                  type="text"
+                  value={login}
+                  placeholder="Enter your name"
+                  onChange={handleSetName}
+                />
+                <br />
+                <input
+                  type="password"
+                  value={password}
+                  placeholder="Enter password"
+                  onChange={handleSetPass}
+                />
+                <br />
+                <button disabled={!login || !password} type="submit">
+                  REGISTER
+                </button>
+                <h3>
+                  Already have an account? <Link to="/login">Sign In</Link>
+                </h3>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    </>
   );
 };
 
