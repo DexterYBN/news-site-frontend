@@ -41,8 +41,19 @@ const SignIn = () => {
   // Прелоадер
   if (logining) {
     return (
-      <div style={{ color: "brown", fontSize: "50px", textAlign: "center" }}>
-        Login in progress. Wait...
+      <div className="lds-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     );
   }

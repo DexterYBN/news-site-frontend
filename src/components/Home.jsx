@@ -26,8 +26,19 @@ const Home = () => {
 
   if (loading) {
     return (
-      <div style={{ color: "brown", fontSize: "50px", textAlign: "center" }}>
-        News in progress. Wait...
+      <div className="lds-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     );
   }
@@ -52,7 +63,11 @@ const Home = () => {
                   <hr />
                 </div>
                 <div>
-                  <h3>{item.subtitle.length > 1 ? item.subtitle.slice(0, 100) + "..." : item.subtitle}</h3>
+                  <h3>
+                    {item.subtitle.length > 1
+                      ? item.subtitle.slice(0, 100) + "..."
+                      : item.subtitle}
+                  </h3>
                 </div>
                 <div>
                   <hr />

@@ -12,12 +12,37 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   const categories = useSelector((state) => state.categories.categories);
+  const loading = useSelector((state) => state.categories.loading);
+  const error = useSelector((state) => state.categories.error);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchCategories());
   }, [dispatch]);
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  if (loading) {
+    return (
+      <div className="lds-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    );
+  }
 
   return (
     <footer>
@@ -39,9 +64,7 @@ const Footer = () => {
           {categories.map((category) => {
             return (
               <li key={category._id}>
-                <Link to={`/category/${category._id}`}>
-                  {category.name}
-                </Link>
+                <Link to={`/category/${category._id}`}>{category.name}</Link>
               </li>
             );
           })}

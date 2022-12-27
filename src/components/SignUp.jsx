@@ -41,8 +41,19 @@ const SignUp = () => {
   // Прелоадер
   if (registrationing) {
     return (
-      <div style={{ color: "brown", fontSize: "50px", textAlign: "center" }}>
-        Registration in progress. Wait...
+      <div className="lds-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     );
   }

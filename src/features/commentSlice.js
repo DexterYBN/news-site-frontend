@@ -13,11 +13,7 @@ export const fetchComments = createAsyncThunk(
   "get/comments/fetch",
   async (_, thunkAPI) => {
     try {
-      const res = await fetch("http://localhost:4000/comments", {
-        // headers: {
-        //   Authorization: `Bearer ${thunkAPI.getState().application.token}`,
-        // },
-      });
+      const res = await fetch("http://localhost:4000/comments");
       const comments = await res.json();
 
       if (comments.error) {

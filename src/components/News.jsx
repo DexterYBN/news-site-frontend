@@ -12,6 +12,8 @@ const Comments = () => {
 
   const [text, setText] = useState("");
   const token = useSelector((state) => state.application.token);
+  const loading = useSelector((state) => state.categories.loading);
+  const error = useSelector((state) => state.categories.error);
 
   const handleAddComment = () => {
     dispatch(createComment({ text, id }));
@@ -39,6 +41,10 @@ const Comments = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(fetchNews());
+  }, [dispatch]);
+
+  useEffect(() => {
     dispatch(fetchComments());
   }, [dispatch]);
 
@@ -46,22 +52,43 @@ const Comments = () => {
     dispatch(createComment());
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(fetchNews());
-  }, [dispatch]);
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  if (loading) {
+    return (
+      <div className="lds-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    );
+  }
 
   return (
     <main>
       {news.map((news) => {
         return (
-          <div key={news.id} className="title_news"><h1>{news.title}</h1></div>
-        )
+          <div key={news._id} className="title_news">
+            <h1>{news.title}</h1>
+          </div>
+        );
       })}
       <div className="main_container">
         <div className="image_container">
           {news.map((item) => {
             return (
-              <div key={item.id} className="capture">
+              <div key={item._id} className="capture">
                 <img
                   src={`http://localhost:4000/assets/Images/${item.image}`}
                   alt=""
@@ -72,21 +99,24 @@ const Comments = () => {
         </div>
         <div className="subtitle_container">
           {news.map((item) => {
-            return <div key={item.id} >{item.subtitle}</div>;
+            return <div key={item._id}>{item.subtitle}</div>;
           })}
         </div>
         <div className="comments_container">
-          <div style={{textAlign: "center", color: "#eee"}}><h2>Reviews</h2><hr /></div>
+          <div style={{ textAlign: "center", color: "#eee" }}>
+            <h2>Reviews</h2>
+            <hr />
+          </div>
           {comments.map((comment) => {
             return (
-              <>
-                <div key={comment._id} className="user_info">
+              <div key={comment._id}>
+                <div className="user_info">
                   <div className="nickname">{comment.user.login}</div>
                   <div className="comment">{comment.text}</div>
                   <div className="date">{comment.createdAt}</div>
                 </div>
                 <hr />
-              </>
+              </div>
             );
           })}
         </div>
