@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { serverUrl } from '../serverUrl';
+import { serverUrl } from "../serverUrl";
 
 // Начальный state
 const initialState = {
@@ -14,7 +14,12 @@ export const fetchCategories = createAsyncThunk(
   "get/categories/fetch",
   async (_, thunkAPI) => {
     try {
-      const res = await fetch(`${serverUrl}/categories`);
+      const res = await fetch(`${serverUrl}/categories`, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+        },
+      });
       const categories = await res.json();
 
       if (categories.error) {

@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { serverUrl } from '../serverUrl.js';
+import { serverUrl } from "../serverUrl.js";
 
 // Начальный state
 const initialState = {
@@ -14,7 +14,12 @@ export const fetchNews = createAsyncThunk(
   "get/news/fetch",
   async (_, thunkAPI) => {
     try {
-      const res = await fetch(`${serverUrl}/news`);
+      const res = await fetch(`${serverUrl}/news`, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+        },
+      });
       const news = await res.json();
 
       if (news.error) {
