@@ -17,8 +17,9 @@ export const fetchNews = createAsyncThunk(
       const res = await fetch(`${serverUrl}/news`, {
         method: "GET",
         headers: {
-          "content-type": "application/json",
-          "Access-Control-Allow-Origin": "*",
+          "Content-type": "application/json",
+          "Access-Control-Allow-Origin": "https://into-news.onrender.com",
+          Vary: "Origin"
         },
       });
       const news = await res.json();
