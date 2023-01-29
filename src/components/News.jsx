@@ -48,10 +48,6 @@ const Comments = () => {
     dispatch(fetchComments());
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(createComment());
-  }, [dispatch]);
-
   if (error) {
     return <div>{error}</div>;
   }
