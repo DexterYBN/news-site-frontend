@@ -3,7 +3,7 @@ import Header from "./Header";
 import Home from "./Home";
 import News from "./News";
 import Footer from "./Footer";
-import { Routes, Route, Navigate, Link } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
 import { useSelector } from "react-redux";
