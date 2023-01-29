@@ -18,6 +18,7 @@ export const fetchNews = createAsyncThunk(
         method: "GET",
         headers: {
           "content-type": "application/json",
+          "Access-Control-Allow-Origin": "*",
         },
       });
       const news = await res.json();
