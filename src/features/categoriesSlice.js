@@ -23,12 +23,12 @@ export const fetchCategories = createAsyncThunk(
       const categories = await res.json();
 
       if (categories.error) {
-        return thunkAPI.rejectWithValue(categories.error + "fweg");
+        return thunkAPI.rejectWithValue(categories.error);
       }
 
       return thunkAPI.fulfillWithValue(categories);
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message + "fweg");
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
