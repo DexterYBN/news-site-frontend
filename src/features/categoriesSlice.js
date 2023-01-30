@@ -18,8 +18,6 @@ export const fetchCategories = createAsyncThunk(
         method: "GET",
         headers: {
           "Content-type": "application/json",
-          "Access-Control-Allow-Origin": "https://into-news.onrender.com",
-          Vary: "Origin"
         },
       });
       const categories = await res.json();
