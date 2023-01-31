@@ -5,5 +5,5 @@ export let serverUrl;
 if(NODE_ENV === 'development') {
   serverUrl = 'http://localhost:5000' // адрес сервера на локалке
 } else {
-  serverUrl = 'https://app.onrender.com'; // адрес сервера после выгрузки
+  serverUrl = 'https://test-news-site.onrender.com'; // адрес сервера после выгрузки
 }
