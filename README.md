@@ -32,9 +32,5 @@ npm i
 После набрать команды:
 
 ```javascript
-npx nodemon для backend
-```
-
-```javascript
 npm start для frontend
 ```
