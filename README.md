@@ -29,7 +29,7 @@
 npm i
 ```
 
-После набрать команды:
+После набрать команду:
 
 ```javascript
 npm start для frontend
