@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { fetchCategories } from "../features/categoriesSlice";
 import { VscAccount } from "react-icons/vsc";
 import { BiLogOut } from "react-icons/bi";
+import { serverUrl } from "../serverUrl.js";
 
 const Header = () => {
   const categories = useSelector((state) => state.categories.categories);
@@ -61,7 +62,7 @@ const Header = () => {
           return (
             <Link
               key={category._id}
-              to={`/category/${category._id}`}
+              to={`${serverUrl}/category/${category._id}`}
               className="link"
             >
               {category.name}
