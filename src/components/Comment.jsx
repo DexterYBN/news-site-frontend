@@ -6,6 +6,7 @@ import { fetchNews } from "../features/newsSlice";
 import { FaTelegramPlane } from "react-icons/fa";
 import Error from "./Error";
 import "./styles/newsStyles.css";
+import { serverUrl } from "../serverUrl.js";
 
 const Comments = () => {
   const { id } = useParams();
@@ -86,7 +87,7 @@ const Comments = () => {
             return (
               <div key={item._id} className="capture">
                 <img
-                  src={`http://localhost:4000/assets/Images/${item.image}`}
+                  src={`${serverUrl}/assets/Images/${item.image}`}
                   alt=""
                 />
               </div>
