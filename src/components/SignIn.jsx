@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authLogin } from "../features/applicationSlice";
 import { Link } from "react-router-dom";
@@ -11,8 +10,8 @@ const SignIn = () => {
   const logining = useSelector((state) => state.application.logining);
 
   // Состояния
-  const [login, setLogin] = useState("");
-  const [password, setPassword] = useState("");
+  const [login, setLogin] = React.useState("");
+  const [password, setPassword] = React.useState("");
 
   // Диспетчер
   const dispatch = useDispatch();

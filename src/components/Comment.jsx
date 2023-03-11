@@ -1,17 +1,16 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
 import { fetchComments, createComment } from "../features/commentSlice";
 import { fetchNews } from "../features/newsSlice";
 import { FaTelegramPlane } from "react-icons/fa";
+import Error from "./Error";
 import "./styles/newsStyles.css";
-import { serverUrl } from "../serverUrl.js";
 
 const Comments = () => {
   const { id } = useParams();
 
-  const [text, setText] = useState("");
+  const [text, setText] = React.useState("");
   const token = useSelector((state) => state.application.token);
   const loading = useSelector((state) => state.categories.loading);
   const error = useSelector((state) => state.categories.error);
@@ -41,16 +40,16 @@ const Comments = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  React.useEffect(() => {
     dispatch(fetchNews());
   }, [dispatch]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     dispatch(fetchComments());
   }, [dispatch]);
 
   if (error) {
-    return <div>{error}</div>;
+    return <Error />;
   }
 
   if (loading) {
@@ -87,7 +86,7 @@ const Comments = () => {
             return (
               <div key={item._id} className="capture">
                 <img
-                  src={`${serverUrl}/assets/Images/${item.image}`}
+                  src={`http://localhost:4000/assets/Images/${item.image}`}
                   alt=""
                 />
               </div>

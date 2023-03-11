@@ -59,7 +59,7 @@ video {
 }
 
 .register button {
-  width: 75%;
+  width: 70%;
   border-radius: 20px;
   padding: 13px;
   border: 2px solid;
@@ -96,6 +96,7 @@ video {
   position: relative;
   width: 80px;
   height: 80px;
+  margin-left: 50%;
 }
 .lds-spinner div {
   transform-origin: 40px 40px;

@@ -1,10 +1,10 @@
 import React from "react";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authRegister } from "../features/applicationSlice";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./styles/signUp.css";
 import video from "../assets/videoBG.mp4";
+import SignIn from "./SignIn";
 
 const SignUp = () => {
   const error = useSelector((state) => state.application.error);
@@ -13,8 +13,8 @@ const SignUp = () => {
   );
 
   // Состояния
-  const [login, setLogin] = useState("");
-  const [password, setPassword] = useState("");
+  const [login, setLogin] = React.useState("");
+  const [password, setPassword] = React.useState("");
 
   // Дисппетчер
   const dispatch = useDispatch();
@@ -32,6 +32,10 @@ const SignUp = () => {
     e.preventDefault();
     dispatch(authRegister({ login, password }));
   };
+
+  const handleLog = () => {
+    window.location.href = "/login"
+  }
 
   // При ошибке
   if (error) {
@@ -80,7 +84,7 @@ const SignUp = () => {
                   onChange={handleSetPass}
                 />
                 <br />
-                <button disabled={!login || !password} type="submit">
+                <button onClick={() => handleLog()} disabled={!login || !password} type="submit">
                   REGISTER
                 </button>
                 <h3>

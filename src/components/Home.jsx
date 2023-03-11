@@ -1,9 +1,9 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
 import { fetchNews } from "../features/newsSlice";
-import { Link } from "react-router-dom";
+import Skeleton from "./Skeleton";
+import Error from "./Error";
 import "./styles/homeStyles.css";
 
 const Home = () => {
@@ -20,35 +20,16 @@ const Home = () => {
   const error = useSelector((state) => state.news.error);
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  React.useEffect(() => {
     dispatch(fetchNews());
   }, [dispatch]);
 
-  if (loading) {
-    return (
-      <div className="lds-spinner">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    );
-  }
+  const sceleton = [...new Array(6)].map((_, index) => (
+    <Skeleton key={index} />
+  ));
 
   if (error) {
-    return (
-      <div style={{ color: "brown", fontSize: "50px", textAlign: "center" }}>
-        Error: {error.message}
-      </div>
-    );
+    return <Error />;
   }
 
   return (
@@ -57,23 +38,27 @@ const Home = () => {
         {news.map((item) => {
           return (
             <div key={item._id} className="news_card">
-              <div className="card_items">
-                <div>
-                  <h5>{item.title}</h5>
-                  <hr />
+              {loading ? (
+                sceleton
+              ) : (
+                <div className="card_items">
+                  <div>
+                    <h5>{item.title}</h5>
+                    <hr />
+                  </div>
+                  <div>
+                    <h3>
+                      {item.subtitle.length > 1
+                        ? item.subtitle.slice(0, 100) + "..."
+                        : item.subtitle}
+                    </h3>
+                  </div>
+                  <div>
+                    <hr />
+                    <Link to={`/news/${item._id}`}>Read more →</Link>
+                  </div>
                 </div>
-                <div>
-                  <h3>
-                    {item.subtitle.length > 1
-                      ? item.subtitle.slice(0, 100) + "..."
-                      : item.subtitle}
-                  </h3>
-                </div>
-                <div>
-                  <hr />
-                  <Link to={`/news/${item._id}`}>Read more →</Link>
-                </div>
-              </div>
+              )}
             </div>
           );
         })}

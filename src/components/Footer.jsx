@@ -1,48 +1,22 @@
 import React from "react";
-import "./styles/footerStyles.css";
 import insta from "../assets/social/instagram.png";
 import twitter from "../assets/social/twitter.png";
 import whats from "../assets/social/whats.png";
 import youtube from "../assets/social/youtube.png";
 import dis from "../assets/social/discord.png";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
 import { fetchCategories } from "../features/categoriesSlice";
 import { Link } from "react-router-dom";
+import "./styles/footerStyles.css";
 
 const Footer = () => {
   const categories = useSelector((state) => state.categories.categories);
-  const loading = useSelector((state) => state.categories.loading);
-  const error = useSelector((state) => state.categories.error);
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  React.useEffect(() => {
     dispatch(fetchCategories());
   }, [dispatch]);
-
-  if (error) {
-    return <div>{error}</div>;
-  }
-
-  if (loading) {
-    return (
-      <div className="lds-spinner">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    );
-  }
 
   return (
     <footer>
