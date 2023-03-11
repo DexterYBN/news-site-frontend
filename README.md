@@ -35,4 +35,4 @@ npm i
 npm start для frontend
 ```
 ```javascript
-<h3><a href="https://github.com/zxcviolence/news-site-backend">Backend часть</a></h3>
+<a href="https://github.com/zxcviolence/news-site-backend">Backend часть</a>
